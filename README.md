@@ -40,3 +40,53 @@ Key features of the pipeline:
 |  (gold_sales_summary,    |      (Ready for Dashboards / BI Tools)
 |   gold_product_perf)     |
 +--------------------------+
+---
+
+## 🛠️ Tech Stack & Tools
+
+* **Platform:** Databricks (Serverless Compute)
+* **Processing Engine:** Apache Spark (PySpark)
+* **Storage & Format:** Delta Lake
+* **Governance:** Databricks Unity Catalog
+* **Language:** Python, SQL
+* **Data Source:** [E-Commerce Dataset on Kaggle](https://www.kaggle.com/datasets/carrie1/ecommerce-data)
+
+---
+
+## 📊 Medallion Architecture Breakdown
+
+### 🥉 1. Bronze Layer (Raw Data Ingestion)
+- Ingests raw sales `.csv` files from Kaggle.
+- Stores raw data in **Delta format** (`default.bronze_sales`) without altering original records to preserve auditability.
+
+### 🥈 2. Silver Layer (Data Cleaning & Transformation)
+- Cleans and normalizes customer, product, and order records.
+- Drops null values in critical fields (`CustomerID`, `StockCode`, `InvoiceNo`).
+- Removes duplicated rows using PySpark `dropDuplicates()`.
+- Enforces data integrity rules (e.g., `CHECK (Quantity > 0)` constraint validation via SQL).
+
+### 🥇 3. Gold Layer (Business Aggregations)
+- Constructs business-focused datasets for reporting and visualization:
+  - **Revenue Analysis by Country:** Aggregates total sales per region.
+  - **Product Performance:** Ranks top-selling items and revenue drivers.
+  - **Customer Insights:** Analyzes purchasing frequency and order values.
+
+---
+
+## 🔍 Data Governance (Unity Catalog)
+
+All layers and tables are organized under Databricks Unity Catalog:
+* `workspace.default.bronze_sales`
+* `workspace.default.silver_customers`
+* `workspace.default.silver_orders`
+* `workspace.default.silver_products`
+* `workspace.default.gold_sales_summary`
+* `workspace.default.gold_product_performance`
+
+---
+
+## 🎯 Key Takeaways & Business Value
+
+- **Data Integrity:** Ensures high-quality data through strict cleaning and validation checks in the Silver layer.
+- **Scalability:** Built on Delta Lake and PySpark, allowing the pipeline to scale seamlessly from MBs to TBs of data.
+- **Business Readiness:** Provides fast, pre-aggregated Gold tables that enable immediate data-driven decision-making for business analysts.
