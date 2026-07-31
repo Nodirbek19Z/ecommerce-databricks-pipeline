@@ -56,7 +56,7 @@ Language: Python, SQL
 Data Source: E-Commerce Dataset on Kaggle
 ---
 ## 📊 Medallion Architecture Breakdown
-##🥉 1. Bronze Layer (Raw Data Ingestion)
+###🥉 1. Bronze Layer (Raw Data Ingestion)
 Ingests raw sales .csv files from Kaggle.
 
 Stores raw data in Delta format (default.bronze_sales) without altering original records to preserve auditability.
