@@ -40,7 +40,7 @@ Key features of the pipeline:
 |  (gold_sales_summary,    |      (Ready for Dashboards / BI Tools)
 |   gold_product_perf)     |
 +--------------------------+
-
+` ``` `
 ## 🛠️ Tech Stack & Tools
 Platform: Databricks (Serverless Compute)
 
