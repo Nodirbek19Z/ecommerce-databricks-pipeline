@@ -42,7 +42,7 @@ Key features of the pipeline:
 +--------------------------+
 ---
 
-## 🛠️ Tech Stack & Tools
+# 🛠️ Tech Stack & Tools
 
 * **Platform:** Databricks (Serverless Compute)
 * **Processing Engine:** Apache Spark (PySpark)
@@ -53,7 +53,7 @@ Key features of the pipeline:
 
 ---
 
-## 📊 Medallion Architecture Breakdown
+# 📊 Medallion Architecture Breakdown
 
 ### 🥉 1. Bronze Layer (Raw Data Ingestion)
 - Ingests raw sales `.csv` files from Kaggle.
@@ -73,7 +73,7 @@ Key features of the pipeline:
 
 ---
 
-## 🔍 Data Governance (Unity Catalog)
+# 🔍 Data Governance (Unity Catalog)
 
 All layers and tables are organized under Databricks Unity Catalog:
 * `workspace.default.bronze_sales`
@@ -85,7 +85,7 @@ All layers and tables are organized under Databricks Unity Catalog:
 
 ---
 
-## 🎯 Key Takeaways & Business Value
+# 🎯 Key Takeaways & Business Value
 
 - **Data Integrity:** Ensures high-quality data through strict cleaning and validation checks in the Silver layer.
 - **Scalability:** Built on Delta Lake and PySpark, allowing the pipeline to scale seamlessly from MBs to TBs of data.
